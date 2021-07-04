@@ -9,6 +9,15 @@ validAlphaNum()
 
   validchar="$(echo $1 | sed -e 's/[^[:alnum:]]//g')"
 
+  # The statement below will allow input with uppercase letters, spaces, commas and periods
+  #validchar="$(echo $1 | sed 's/[^[:upper:] ,.]//g')"
+
+  # The statement below will allow input with integer, spaces, parentheses and dashes
+  validchar="$(echo $1 | sed 's/[^- [:digit:]\(\)]//g')"
+
+  # The statement below will limit input to integers only
+  #validchar="$(echo $1 | sed 's/[^[:digit:]]//g')"
+
   if [ "$validchar" = "$1" ] ; then
     return 0
   else
