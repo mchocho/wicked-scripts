@@ -14,7 +14,7 @@ validint()
   fi
 
   # Check if first character is a '-' sign
-  if [ "${number%${numner#?}}" = "-" ] ; then
+  if [ "${number%${number#?}}" = "-" ] ; then
     testvalue="${number#?}"  # Grab all but the first character to test
   else
     testvalue="$number"
@@ -25,7 +25,7 @@ validint()
 
   # Check for nondigit characters.
   if [ ! -z $nodigits ] ; then
-    echo "Invalid format! Only digitss, no commas, spaces, etc." >&2
+    echo "Invalid format! Only digits, no commas, spaces, etc." >&2
     return 1
   fi
 
